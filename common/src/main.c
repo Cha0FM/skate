@@ -65,9 +65,8 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN 0 */
 uint64_t RxpipeAddrs = 0x11223344AA;
 
-char myRxData[50]; //variable de recepción que asignaremos al PWM
-char myAckPayload1[32] = "1"; //mensaje de ACK
-char myAckPayload0[32] = "0"; //mensaje de ACK
+uint32_t myRxData[50]; //variable de recepción que asignaremos al PWM
+char myAckPayload[32] = "Recibido Correctamente"; //mensaje de ACK
 
 /* USER CODE END 0 */
 
@@ -132,18 +131,10 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
     if(NRF24_available())
    {
     NRF24_read(myRxData, 32);
+
     //Mandar ACK de vuelta 
-    if(myRxData[0] == 0)
-    {
-		NRF24_writeAckPayload(1, myAckPayload0, 32);
-
-    }
-    if(myRxData[0] == 1)
-    {
-      		NRF24_writeAckPayload(1, myAckPayload1, 32);
-
-    }
-    //debugging
+		NRF24_writeAckPayload(1, myAckPayload, 32);
+    myRxData[32] = '\r'; myRxData[32+1] = '\n';
 			HAL_UART_Transmit(&huart2, (uint8_t *)myRxData, 32+2, 10);
 
    }
