@@ -137,6 +137,8 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
     myRxData[32] = '\r'; myRxData[32+1] = '\n';
 			HAL_UART_Transmit(&huart2, (uint8_t *)myRxData, 32+2, 10);
 
+      
+
    }
   }
   /* USER CODE END 3 */

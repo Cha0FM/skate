@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "IZQ Debug device STM32F446RE",
+        "name": "DER Debug device STM32F446RE",
         "cwd": "${workspaceRoot}", 
         "executable": "${workspaceFolder}/output/${workspaceFolderBasename}.elf",
         "request": "launch",
@@ -25,7 +25,7 @@
             {
               "type": "console",
               "label": "ITM",
-              "port": 0
+              "port": 2
             }
           ]
         },
