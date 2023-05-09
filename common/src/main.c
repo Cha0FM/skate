@@ -48,7 +48,7 @@ TIM_HandleTypeDef htim1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint32_t duty = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -140,6 +140,10 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
       
 
    }
+  duty = (myRxData[0] * (uint32_t)1.37) + (uint32_t)1520;
+    htim1.Instance->CCR1 = duty;
+    HAL_Delay(1);
+   
   }
   /* USER CODE END 3 */
 }
