@@ -140,7 +140,7 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
       
 
    }
-  duty = (myRxData[0] * (uint32_t)1.37) + (uint32_t)1520;
+  duty = (uint32_t)1520 + (myRxData[0] * (uint32_t)2.666);
     htim1.Instance->CCR1 = duty;
     HAL_Delay(1);
    
