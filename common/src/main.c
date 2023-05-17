@@ -65,8 +65,8 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN 0 */
 uint64_t RxpipeAddrs = 0x11223344AA;
 
-uint32_t myRxData[50]; //variable de recepción que asignaremos al PWM
-char myAckPayload[32] = "Recibido Correctamente"; //mensaje de ACK
+uint32_t myRxData[2]; //variable de recepción que asignaremos al PWM
+bool myAckPayload[1]; //mensaje de ACK
 
 /* USER CODE END 0 */
 
@@ -130,14 +130,17 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
     //Recepción con ACK (ver documentación) 
     if(NRF24_available())
    {
-    NRF24_read(myRxData, 32);
-
+    NRF24_read(myRxData, 2);
+    myAckPayload[0] = true;
     //Mandar ACK de vuelta 
-		NRF24_writeAckPayload(1, myAckPayload, 32);
-    myRxData[32] = '\r'; myRxData[32+1] = '\n';
-			HAL_UART_Transmit(&huart2, (uint8_t *)myRxData, 32+2, 10);
+		NRF24_writeAckPayload(1, myAckPayload, 1);
 
       
+
+   }
+   else{
+        myAckPayload[0] = false;
+    		NRF24_writeAckPayload(1, myAckPayload, 1);
 
    }
   duty = (uint32_t)1520 + (myRxData[0] * (uint32_t)2.666);
@@ -280,7 +283,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 10000;
+  sConfigOC.Pulse = 1520;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
