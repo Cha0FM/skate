@@ -132,20 +132,19 @@ HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
    {
     NRF24_read(myRxData, 2);
     myAckPayload[0] = true;
-    //Mandar ACK de vuelta 
-		NRF24_writeAckPayload(1, myAckPayload, 1);
+		NRF24_writeAckPayload(1, myAckPayload, 1);//Mandar ACK de vuelta true
 
       
 
    }
    else{
         myAckPayload[0] = false;
-    		NRF24_writeAckPayload(1, myAckPayload, 1);
+    		NRF24_writeAckPayload(1, myAckPayload, 1);//Mandar ACK de vuelta false
 
    }
   duty = (uint32_t)1520 + (myRxData[0] * (uint32_t)2.666);
     htim1.Instance->CCR1 = duty;
-    HAL_Delay(1);
+    HAL_Delay(10);
    
   }
   /* USER CODE END 3 */
