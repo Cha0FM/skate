@@ -12,7 +12,7 @@ typedef struct
     fsm_t fsm;              /*!< Internal FSM from the library */
     uint32_t adcVal;        /*!< Valor del Potenciometro ADC de 0-255 */
     bool ack[1];               /*!< AcK de vuelta */
-    uint32_t myRxData[2]; /*!< Buffer de recepcion*/
+    uint32_t myRxData[32]; /*!< Buffer de recepcion*/
 } fsm_pwm_t;
 
 /**
@@ -25,7 +25,7 @@ typedef struct
  */
 bool check_boton_true(fsm_t *p_fsm)
 {
-    fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_pwm ;
+    fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
     if((p_pwm -> myRxData[1]) ==  1)
     {
         return true;
@@ -44,13 +44,13 @@ bool check_boton_true(fsm_t *p_fsm)
  */
 bool check_boton_false(fsm_t *p_fsm)
 {
-    fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_pwm ;
-    if((p_pwm -> myRxData[1]) ==  1)
+    fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
+    if(((p_pwm -> myRxData[1]) ==  0))
     {
-        return false;
+        return true;
     }
     else{
-        return true;
+        return false;
     }
 }
 
@@ -58,10 +58,10 @@ bool check_boton_false(fsm_t *p_fsm)
 
 void do_recibe_acciona_motores_atras(fsm_t *p_fsm)
 {
-fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_pwm ;
+fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
 if(NRF24_available())
    {
-    NRF24_read(p_pwm -> myRxData, 2);
+    NRF24_read(p_pwm -> myRxData, 32);
     p_pwm -> ack[0] = true;
 		NRF24_writeAckPayload(1, p_pwm -> ack, 1);//Mandar ACK de vuelta true
    }
@@ -75,14 +75,13 @@ if(NRF24_available())
 
 void do_recibe_acciona_motores_adelante(fsm_t *p_fsm)
 {
-fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_pwm ;
+fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
 if(NRF24_available())
    {
-    NRF24_read(p_pwm -> myRxData, 2);
+    NRF24_read(p_pwm -> myRxData, 32);
     p_pwm -> ack[0] = true;
 		NRF24_writeAckPayload(1, p_pwm -> ack, 1);//Mandar ACK de vuelta true
    }
-
 
   htim1.Instance->CCR1  = (uint32_t)1520 + (p_pwm -> myRxData[0] * (uint32_t)2.666);
     
@@ -100,10 +99,10 @@ enum FSM_PWM_STATES
 };
 
 static fsm_trans_t fsm_trans_pwm[] = {
-    { FORWARD , check_boton_true , BACKWARD , do_recibe_acciona_motores_atras },
+    { FORWARD , check_boton_false , BACKWARD , do_recibe_acciona_motores_atras },
  { BACKWARD , check_boton_true , FORWARD , do_recibe_acciona_motores_adelante },
  { BACKWARD , check_boton_false , BACKWARD, do_recibe_acciona_motores_atras },
- { FORWARD , check_boton_false , FORWARD , do_recibe_acciona_motores_adelante },
+ { FORWARD , check_boton_true , FORWARD , do_recibe_acciona_motores_adelante },
  { -1 , NULL , -1, NULL }
 };
 
@@ -123,7 +122,7 @@ void fsm_pwm_init(fsm_t *p_fsm)
  fsm_init (& p_pwm -> fsm , fsm_trans_pwm );
  p_pwm -> adcVal = 0;
  p_pwm -> ack[0] = false;
- p_pwm -> myRxData[0] = 0;
- p_pwm -> myRxData[1] = 0;
+ p_pwm -> myRxData[0] =  0;
+ p_pwm -> myRxData[1] =  0;
  
 }
