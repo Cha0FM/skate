@@ -1,30 +1,22 @@
-/* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
+ * @file main.c
+ * @author Javier y Manuel
+ * @brief Programa Principal Skate
+ * @version 1.0
+ * @date 2023-05-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h" 
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 #include "MY_NRF24.h"
 #include <stdio.h>
 #include "fsm_pwm.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,11 +55,11 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/**
+ * @brief Dirección inequivoca para identificar el enlace Nrf24l01
+ * 
+ */
 uint64_t RxpipeAddrs = 0x11223344AA;
-
-uint32_t myRxData[2]; //variable de recepción que asignaremos al PWM
-bool myAckPayload[1]; //mensaje de ACK
-
 /* USER CODE END 0 */
 
 /**
@@ -76,47 +68,115 @@ bool myAckPayload[1]; //mensaje de ACK
   */
 int main(void)
 {
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+    /**
+   * @brief Resetea todos los perifericos, inicializa la interfaz de flasheo y el Systick
+   * 
+   */
   HAL_Init();
-
-  /* Configure the system clock */
+ /**
+   * @brief Configura el reloj del sistema, en nuestro caso se encarga la HAL y lo hemos puesto a 16 MHZ
+   * 
+   */
   SystemClock_Config();
+ /**
+  * @brief Inicializa el periferico GPIO para el botón, en nuestro caso configurado por HAL
+  * 
+  */
+  MX_GPIO_Init();
+  /**
+   * @brief Inicializa el periferico SPI para el NRFL, en nuestro caso configurado por HAL
+   * 
+   */
+  MX_SPI1_Init();
+    /**
+   * @brief Inicializa el periferico para depurar, usado en la entrega intermedia, en nuestro caso configurado por HAL
+   * 
+   */
+  MX_USART2_UART_Init();
+  /**
+   * @brief Inicializa el Timer para generar el PWM, en nuestro caso configurado por HAL
+   * 
+   */
+  MX_TIM1_Init();
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();//GPIO del botón
-  MX_SPI1_Init();//SPI para el NRFL
-  MX_USART2_UART_Init(); //UART para debugging
-  MX_TIM1_Init(); //TIMER 1 para el PWM
-  /* USER CODE BEGIN 2 */
+/**
+ * @brief Inicializa la libreria y establece los puertos CE, CSN y el handle del SPI
+ * 
+ * @param nrf24PORT Puerto principal
+ * @param nrfCSN_Pin Chip Select
+ * @param nrfCE_Pin Chip Enable
+ * @param nrfSPI SPI Handler
+ */
 NRF24_begin(CEpin_GPIO_Port,CSNpin_Pin,GPIO_PIN_9,hspi1);
+/**
+ * @brief Inicializa la línea UART 
+ * para comprobar la transmisión según mostramos en la entrega intermedia
+ * 
+ * @param nrf24Uart Uart
+ */
 nrf24_DebugUART_Init(huart2);
-
+/**
+ * @brief Hace print por la terminal de los ajustes,
+ * usado en la entrega intermedia
+ * 
+ */
 printRadioSettings();//Resetea y printea los ajustes
 // ******* SETUP DE RECEPCIÓN CON ACK *****//
+/**
+ * @brief Activa envío con ACK
+ * 
+ * @param enable True o false
+ */
 NRF24_setAutoAck(true);
-NRF24_setChannel(52);//elegimos el canal
-NRF24_setPayloadSize(32);//tamaño de la payload
+/**
+ * @brief Elegimos la frecuencia del canal por el que vamos a transmitir
+ * 
+ * @param channel Valor de canal entre 0-127
+ */
+NRF24_setChannel(52);
+/**
+ * @brief Tamaño de información que podemos enviar, maximo 32 bytes
+ * 
+ * @param size Tamaño
+ */
+NRF24_setPayloadSize(32);
+/**
+ * @brief Prepara el Rx para recibir, con direccion inequivoca
+ * 
+ * @param number Numero de Rx
+ * @param address Dirección inequívoca para identificar el enlace
+ */
 NRF24_openReadingPipe(1,RxpipeAddrs);
+/**
+ * @brief Activa las Payload dinamicas
+ * 
+ */
 NRF24_enableDynamicPayloads();
+/**
+ * @brief Activa el envio de vuelta del ACK
+ * 
+ */
 NRF24_enableAckPayload();
-NRF24_startListening();//estar listo para recibir
+/**
+ * @brief Prepara el Rx para recibir
+ * 
+ */
+NRF24_startListening();
 
 
 // **** PWM ***////
+/**
+ * @brief Iniciamos el Timer para PWM
+ * 
+ */
 HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
 
   fsm_t * p_pwm = fsm_pwm_new();
   while (1)
   {
    fsm_fire(p_pwm);
-   
   }
   fsm_destroy(p_pwm);
-  /* USER CODE END 3 */
 }
 
 /**

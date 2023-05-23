@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Skate: Referencia del archivo common/src/fsm_pwm.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Skate<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Proyecto Skate</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bdd9a5d540de89e9fe90efdfc6973a4f.html">common</a></li><li class="navelem"><a class="el" href="dir_4e4d22e38ca4e2e8207825ee2d00bc54.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Clases</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo fsm_pwm.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Maquina de estados del Skate.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="fsm__pwm_8h_source.html">fsm_pwm.h</a>&quot;</code><br />
+<code>#include &quot;stm32f4xx_hal.h&quot;</code><br />
+<code>#include &quot;stm32f4xx_hal_adc.h&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_m_y___n_r_f24_8h_source.html">MY_NRF24.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Clases</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__pwm__t.html">fsm_pwm_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura de la FSM del Skate-PWM.  <a href="structfsm__pwm__t.html#details">Más...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:af9d86eeeba1426d0202ea4387318dc9f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#af9d86eeeba1426d0202ea4387318dc9f">FSM_PWM_STATES</a> { <a class="el" href="fsm__pwm_8c.html#af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1">FORWARD</a>
+, <a class="el" href="fsm__pwm_8c.html#af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6">BACKWARD</a>
+ }</td></tr>
+<tr class="memdesc:af9d86eeeba1426d0202ea4387318dc9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estados de FSM PWM.  <a href="fsm__pwm_8c.html#af9d86eeeba1426d0202ea4387318dc9f">Más...</a><br /></td></tr>
+<tr class="separator:af9d86eeeba1426d0202ea4387318dc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:aa362366198d5d8c9ebee54880defd700"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#aa362366198d5d8c9ebee54880defd700">check_boton_true</a> (<a class="el" href="structfsm__t.html">fsm_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:aa362366198d5d8c9ebee54880defd700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia adelante.  <br /></td></tr>
+<tr class="separator:aa362366198d5d8c9ebee54880defd700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6441e7887b33bfbdfbb462c40b294578"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#a6441e7887b33bfbdfbb462c40b294578">check_boton_false</a> (<a class="el" href="structfsm__t.html">fsm_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:a6441e7887b33bfbdfbb462c40b294578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia atras.  <br /></td></tr>
+<tr class="separator:a6441e7887b33bfbdfbb462c40b294578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa34858eab9a02015f6990c36560773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#a5fa34858eab9a02015f6990c36560773">do_recibe_acciona_motores_atras</a> (<a class="el" href="structfsm__t.html">fsm_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:a5fa34858eab9a02015f6990c36560773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recibe la informacion del emisor, actualiza los valores y genera el PWM para retroceder.  <br /></td></tr>
+<tr class="separator:a5fa34858eab9a02015f6990c36560773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b850a5fede324b3a1d87d7680c298bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#a2b850a5fede324b3a1d87d7680c298bf">do_recibe_acciona_motores_adelante</a> (<a class="el" href="structfsm__t.html">fsm_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:a2b850a5fede324b3a1d87d7680c298bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recibe la informacion del emisor, actualiza los valores y genera el PWM para avanzar.  <br /></td></tr>
+<tr class="separator:a2b850a5fede324b3a1d87d7680c298bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2748179132cdd27a2e6766502b29875f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#a2748179132cdd27a2e6766502b29875f">fsm_pwm_new</a> ()</td></tr>
+<tr class="memdesc:a2748179132cdd27a2e6766502b29875f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion.  <br /></td></tr>
+<tr class="separator:a2748179132cdd27a2e6766502b29875f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2986e1accbf5ef10ad191407e8c00f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__pwm_8c.html#ad2986e1accbf5ef10ad191407e8c00f5">fsm_pwm_init</a> (<a class="el" href="structfsm__t.html">fsm_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:ad2986e1accbf5ef10ad191407e8c00f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion.  <br /></td></tr>
+<tr class="separator:ad2986e1accbf5ef10ad191407e8c00f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Maquina de estados del Skate. </p>
+<dl class="section author"><dt>Autor</dt><dd>Javier y Manuel </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>2023-05-23</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+</div><h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="af9d86eeeba1426d0202ea4387318dc9f" name="af9d86eeeba1426d0202ea4387318dc9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d86eeeba1426d0202ea4387318dc9f">&#9670;&#160;</a></span>FSM_PWM_STATES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="fsm__pwm_8c.html#af9d86eeeba1426d0202ea4387318dc9f">FSM_PWM_STATES</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estados de FSM PWM. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1" name="af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1"></a>FORWARD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6" name="af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6"></a>BACKWARD&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a6441e7887b33bfbdfbb462c40b294578" name="a6441e7887b33bfbdfbb462c40b294578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6441e7887b33bfbdfbb462c40b294578">&#9670;&#160;</a></span>check_boton_false()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_boton_false </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td>
+          <td class="paramname"><em>p_fsm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia atras. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_fsm</td><td>Puntero a la FSM del PWM </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="aa362366198d5d8c9ebee54880defd700" name="aa362366198d5d8c9ebee54880defd700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa362366198d5d8c9ebee54880defd700">&#9670;&#160;</a></span>check_boton_true()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_boton_true </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td>
+          <td class="paramname"><em>p_fsm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia adelante. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_fsm</td><td>Puntero a la FSM del PWM </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a2b850a5fede324b3a1d87d7680c298bf" name="a2b850a5fede324b3a1d87d7680c298bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b850a5fede324b3a1d87d7680c298bf">&#9670;&#160;</a></span>do_recibe_acciona_motores_adelante()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_recibe_acciona_motores_adelante </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td>
+          <td class="paramname"><em>p_fsm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recibe la informacion del emisor, actualiza los valores y genera el PWM para avanzar. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_fsm</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fa34858eab9a02015f6990c36560773" name="a5fa34858eab9a02015f6990c36560773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa34858eab9a02015f6990c36560773">&#9670;&#160;</a></span>do_recibe_acciona_motores_atras()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void do_recibe_acciona_motores_atras </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td>
+          <td class="paramname"><em>p_fsm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recibe la informacion del emisor, actualiza los valores y genera el PWM para retroceder. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_fsm</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2986e1accbf5ef10ad191407e8c00f5" name="ad2986e1accbf5ef10ad191407e8c00f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2986e1accbf5ef10ad191407e8c00f5">&#9670;&#160;</a></span>fsm_pwm_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fsm_pwm_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structfsm__t.html">fsm_t</a> *&#160;</td>
+          <td class="paramname"><em>p_fsm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_fsm</td><td>Puntero a la FSM del PWM </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2748179132cdd27a2e6766502b29875f" name="a2748179132cdd27a2e6766502b29875f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2748179132cdd27a2e6766502b29875f">&#9670;&#160;</a></span>fsm_pwm_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfsm__t.html">fsm_t</a> * fsm_pwm_new </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>fsm_t* Puntero a la FSM del PWM </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

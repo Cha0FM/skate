@@ -1,23 +1,13 @@
-/* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-
+ * @file main.h
+ * @author Javier y Manuel
+ * @brief Cabecera del programa principal
+ * @version 1.0
+ * @date 2023-05-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H
 #define __MAIN_H
@@ -36,6 +26,10 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+/**
+ * @brief Variable externa de configuracion del Timer para PWM para poder usarla en archivo FSM
+ * 
+ */
 extern TIM_HandleTypeDef htim1;
 /* USER CODE END ET */
 

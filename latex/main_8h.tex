@@ -1,0 +1,114 @@
+\doxysection{Referencia del archivo common/include/main.h}
+\hypertarget{main_8h}{}\label{main_8h}\index{common/include/main.h@{common/include/main.h}}
+
+
+Cabecera del programa principal.  
+
+
+{\ttfamily \#include \"{}stm32f4xx\+\_\+hal.\+h\"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_a21f57a7651fe5ac03619f23c33e12b68}{CSNpin\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+8
+\item 
+\#define \mbox{\hyperlink{main_8h_a940d81c5d0a74788291f15a4c1eddd1a}{CSNpin\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\item 
+\#define \mbox{\hyperlink{main_8h_a6c7bde3206789ca5b5bb7e780636a581}{CEpin\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+9
+\item 
+\#define \mbox{\hyperlink{main_8h_a0c9b5e10ed50d2d23a2b7fceb3f1a02b}{CEpin\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8h_ae70bce6c39d0b570a7523b86738cec4b}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\item 
+void \mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\begin{DoxyCompactList}\small\item\em Variable externa de configuracion del Timer para PWM para poder usarla en archivo FSM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Cabecera del programa principal. 
+
+\begin{DoxyAuthor}{Autor}
+Javier y Manuel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/05-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{main_8h_a0c9b5e10ed50d2d23a2b7fceb3f1a02b}\label{main_8h_a0c9b5e10ed50d2d23a2b7fceb3f1a02b} 
+\index{main.h@{main.h}!CEpin\_GPIO\_Port@{CEpin\_GPIO\_Port}}
+\index{CEpin\_GPIO\_Port@{CEpin\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{CEpin\_GPIO\_Port}{CEpin\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define CEpin\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+\Hypertarget{main_8h_a6c7bde3206789ca5b5bb7e780636a581}\label{main_8h_a6c7bde3206789ca5b5bb7e780636a581} 
+\index{main.h@{main.h}!CEpin\_Pin@{CEpin\_Pin}}
+\index{CEpin\_Pin@{CEpin\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{CEpin\_Pin}{CEpin\_Pin}}
+{\footnotesize\ttfamily \#define CEpin\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+9}
+
+\Hypertarget{main_8h_a940d81c5d0a74788291f15a4c1eddd1a}\label{main_8h_a940d81c5d0a74788291f15a4c1eddd1a} 
+\index{main.h@{main.h}!CSNpin\_GPIO\_Port@{CSNpin\_GPIO\_Port}}
+\index{CSNpin\_GPIO\_Port@{CSNpin\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{CSNpin\_GPIO\_Port}{CSNpin\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define CSNpin\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+\Hypertarget{main_8h_a21f57a7651fe5ac03619f23c33e12b68}\label{main_8h_a21f57a7651fe5ac03619f23c33e12b68} 
+\index{main.h@{main.h}!CSNpin\_Pin@{CSNpin\_Pin}}
+\index{CSNpin\_Pin@{CSNpin\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{CSNpin\_Pin}{CSNpin\_Pin}}
+{\footnotesize\ttfamily \#define CSNpin\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+8}
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{main_8h_a1730ffe1e560465665eb47d9264826f9}\label{main_8h_a1730ffe1e560465665eb47d9264826f9} 
+\index{main.h@{main.h}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8h_ae70bce6c39d0b570a7523b86738cec4b}\label{main_8h_ae70bce6c39d0b570a7523b86738cec4b} 
+\index{main.h@{main.h}!HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}}
+\index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+TIM1 GPIO Configuration PA8 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1
+
+TIM1 GPIO Configuration PA8 -\/-\/-\/---\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{main_8h_a25fc663547539bc49fecc0011bd76ab5}\label{main_8h_a25fc663547539bc49fecc0011bd76ab5} 
+\index{main.h@{main.h}!htim1@{htim1}}
+\index{htim1@{htim1}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Variable externa de configuracion del Timer para PWM para poder usarla en archivo FSM. 
+

@@ -1,0 +1,183 @@
+\doxysection{Referencia del archivo common/src/fsm\+\_\+pwm.c}
+\hypertarget{fsm__pwm_8c}{}\label{fsm__pwm_8c}\index{common/src/fsm\_pwm.c@{common/src/fsm\_pwm.c}}
+
+
+Maquina de estados del Skate.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \"{}fsm\+\_\+pwm.\+h\"{}}\newline
+{\ttfamily \#include \"{}stm32f4xx\+\_\+hal.\+h\"{}}\newline
+{\ttfamily \#include \"{}stm32f4xx\+\_\+hal\+\_\+adc.\+h\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \"{}main.\+h\"{}}\newline
+{\ttfamily \#include \"{}MY\+\_\+\+NRF24.\+h\"{}}\newline
+\doxysubsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfsm__pwm__t}{fsm\+\_\+pwm\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Estructura de la FSM del Skate-\/\+PWM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9f}{FSM\+\_\+\+PWM\+\_\+\+STATES}} \{ \mbox{\hyperlink{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1}{FORWARD}}
+, \mbox{\hyperlink{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6}{BACKWARD}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estados de FSM PWM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{fsm__pwm_8c_aa362366198d5d8c9ebee54880defd700}{check\+\_\+boton\+\_\+true}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia adelante. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{fsm__pwm_8c_a6441e7887b33bfbdfbb462c40b294578}{check\+\_\+boton\+\_\+false}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia atras. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm__pwm_8c_a5fa34858eab9a02015f6990c36560773}{do\+\_\+recibe\+\_\+acciona\+\_\+motores\+\_\+atras}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Recibe la informacion del emisor, actualiza los valores y genera el PWM para retroceder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm__pwm_8c_a2b850a5fede324b3a1d87d7680c298bf}{do\+\_\+recibe\+\_\+acciona\+\_\+motores\+\_\+adelante}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Recibe la informacion del emisor, actualiza los valores y genera el PWM para avanzar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsm__pwm_8c_a2748179132cdd27a2e6766502b29875f}{fsm\+\_\+pwm\+\_\+new}} ()
+\begin{DoxyCompactList}\small\item\em Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm__pwm_8c_ad2986e1accbf5ef10ad191407e8c00f5}{fsm\+\_\+pwm\+\_\+init}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Maquina de estados del Skate. 
+
+\begin{DoxyAuthor}{Autor}
+Javier y Manuel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/05-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentación de enumeraciones}
+\Hypertarget{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9f}\label{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9f} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!FSM\_PWM\_STATES@{FSM\_PWM\_STATES}}
+\index{FSM\_PWM\_STATES@{FSM\_PWM\_STATES}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{FSM\_PWM\_STATES}{FSM\_PWM\_STATES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9f}{FSM\+\_\+\+PWM\+\_\+\+STATES}}}
+
+
+
+Estados de FSM PWM. 
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD@{FORWARD}!fsm\_pwm.c@{fsm\_pwm.c}}\index{fsm\_pwm.c@{fsm\_pwm.c}!FORWARD@{FORWARD}}}\Hypertarget{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1}\label{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9faa26736999186daf8146f809e863712a1} 
+FORWARD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARD@{BACKWARD}!fsm\_pwm.c@{fsm\_pwm.c}}\index{fsm\_pwm.c@{fsm\_pwm.c}!BACKWARD@{BACKWARD}}}\Hypertarget{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6}\label{fsm__pwm_8c_af9d86eeeba1426d0202ea4387318dc9fafed2fca77e454294d6b8bda1bf2c9fd6} 
+BACKWARD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{fsm__pwm_8c_a6441e7887b33bfbdfbb462c40b294578}\label{fsm__pwm_8c_a6441e7887b33bfbdfbb462c40b294578} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!check\_boton\_false@{check\_boton\_false}}
+\index{check\_boton\_false@{check\_boton\_false}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{check\_boton\_false()}{check\_boton\_false()}}
+{\footnotesize\ttfamily bool check\+\_\+boton\+\_\+false (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia atras. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & Puntero a la FSM del PWM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true 
+
+false 
+\end{DoxyReturn}
+\Hypertarget{fsm__pwm_8c_aa362366198d5d8c9ebee54880defd700}\label{fsm__pwm_8c_aa362366198d5d8c9ebee54880defd700} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!check\_boton\_true@{check\_boton\_true}}
+\index{check\_boton\_true@{check\_boton\_true}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{check\_boton\_true()}{check\_boton\_true()}}
+{\footnotesize\ttfamily bool check\+\_\+boton\+\_\+true (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Comprueba que el interruptor de cambio de sentido ha sido pulsado, y cambia la direccion de giro hacia adelante. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & Puntero a la FSM del PWM \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true 
+
+false 
+\end{DoxyReturn}
+\Hypertarget{fsm__pwm_8c_a2b850a5fede324b3a1d87d7680c298bf}\label{fsm__pwm_8c_a2b850a5fede324b3a1d87d7680c298bf} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!do\_recibe\_acciona\_motores\_adelante@{do\_recibe\_acciona\_motores\_adelante}}
+\index{do\_recibe\_acciona\_motores\_adelante@{do\_recibe\_acciona\_motores\_adelante}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{do\_recibe\_acciona\_motores\_adelante()}{do\_recibe\_acciona\_motores\_adelante()}}
+{\footnotesize\ttfamily void do\+\_\+recibe\+\_\+acciona\+\_\+motores\+\_\+adelante (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Recibe la informacion del emisor, actualiza los valores y genera el PWM para avanzar. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm__pwm_8c_a5fa34858eab9a02015f6990c36560773}\label{fsm__pwm_8c_a5fa34858eab9a02015f6990c36560773} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!do\_recibe\_acciona\_motores\_atras@{do\_recibe\_acciona\_motores\_atras}}
+\index{do\_recibe\_acciona\_motores\_atras@{do\_recibe\_acciona\_motores\_atras}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{do\_recibe\_acciona\_motores\_atras()}{do\_recibe\_acciona\_motores\_atras()}}
+{\footnotesize\ttfamily void do\+\_\+recibe\+\_\+acciona\+\_\+motores\+\_\+atras (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Recibe la informacion del emisor, actualiza los valores y genera el PWM para retroceder. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm__pwm_8c_ad2986e1accbf5ef10ad191407e8c00f5}\label{fsm__pwm_8c_ad2986e1accbf5ef10ad191407e8c00f5} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!fsm\_pwm\_init@{fsm\_pwm\_init}}
+\index{fsm\_pwm\_init@{fsm\_pwm\_init}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{fsm\_pwm\_init()}{fsm\_pwm\_init()}}
+{\footnotesize\ttfamily void fsm\+\_\+pwm\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & Puntero a la FSM del PWM \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm__pwm_8c_a2748179132cdd27a2e6766502b29875f}\label{fsm__pwm_8c_a2748179132cdd27a2e6766502b29875f} 
+\index{fsm\_pwm.c@{fsm\_pwm.c}!fsm\_pwm\_new@{fsm\_pwm\_new}}
+\index{fsm\_pwm\_new@{fsm\_pwm\_new}!fsm\_pwm.c@{fsm\_pwm.c}}
+\doxysubsubsection{\texorpdfstring{fsm\_pwm\_new()}{fsm\_pwm\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*} fsm\+\_\+pwm\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion. 
+
+\begin{DoxyReturn}{Devuelve}
+fsm\+\_\+t\texorpdfstring{$\ast$}{*} Puntero a la FSM del PWM 
+\end{DoxyReturn}

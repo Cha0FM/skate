@@ -1,0 +1,603 @@
+\doxysection{Referencia del archivo port/nucleo\+\_\+stm32f446re/src/\+MY\+\_\+\+NRF24.c}
+\hypertarget{_m_y___n_r_f24_8c}{}\label{_m_y___n_r_f24_8c}\index{port/nucleo\_stm32f446re/src/MY\_NRF24.c@{port/nucleo\_stm32f446re/src/MY\_NRF24.c}}
+{\ttfamily \#include \"{}MY\+\_\+\+NRF24.\+h\"{}}\newline
+{\ttfamily \#include \"{}stdio.\+h\"{}}\newline
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_m_y___n_r_f24_8c_aacc3ee1a7f283f8ef65cea31f4436a95}{MAX}}(x,  y)~(((x) $>$ (y)) ? (x) \+: (y))
+\item 
+\#define \mbox{\hyperlink{_m_y___n_r_f24_8c_a74e75242132eaabbc1c512488a135926}{MIN}}(x,  y)~(((x) $<$ (y)) ? (x) \+: (y))
+\item 
+\#define \mbox{\hyperlink{_m_y___n_r_f24_8c_aff51f472a69a39cc575675a291d2f1a4}{\+\_\+\+BOOL}}(x)~(((x)$>$0) ? 1\+:0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ac2f2ac150aa22d8c797e845998efc16c}{NRF24\+\_\+\+Delay\+Micro\+Seconds}} (uint32\+\_\+t u\+Sec)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_acc1217893001fb902fa33b2ddbd63110}{NRF24\+\_\+csn}} (int state)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a1dc72f8089e95b9e8be4d19046b5c0ac}{NRF24\+\_\+ce}} (int state)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_m_y___n_r_f24_8c_ad750c260a6c1c0deff39c2465c54f925}{NRF24\+\_\+read\+\_\+register}} (uint8\+\_\+t reg)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ae7cc0a8a15e32b821731fa153736cd44}{NRF24\+\_\+read\+\_\+registerN}} (uint8\+\_\+t reg, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_af479d475bc801c51e8d236a228f6cd40}{NRF24\+\_\+write\+\_\+register}} (uint8\+\_\+t reg, uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_afffc3f01b8e25c17935cc40103091c4d}{NRF24\+\_\+write\+\_\+registerN}} (uint8\+\_\+t reg, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a097926d70cb558d65285ec67602963fe}{NRF24\+\_\+write\+\_\+payload}} (const void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a312f747b7aace112116f00344adeb5ae}{NRF24\+\_\+read\+\_\+payload}} (void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a741cb09665af6c187e906bf83903d42b}{NRF24\+\_\+flush\+\_\+tx}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_aace3c55f34745940228b5133a17386fd}{NRF24\+\_\+flush\+\_\+rx}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_m_y___n_r_f24_8c_a7721512157e7ea40daa1a453b6f9d611}{NRF24\+\_\+get\+\_\+status}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a9fe580c2c16ec66d3b85e9c2068eff28}{NRF24\+\_\+begin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}nrf24\+PORT, uint16\+\_\+t nrf\+CSN\+\_\+\+Pin, uint16\+\_\+t nrf\+CE\+\_\+\+Pin, SPI\+\_\+\+Handle\+Type\+Def nrf\+SPI)
+\begin{DoxyCompactList}\small\item\em Inicializa la libreria y establece los puertos CE, CSN y el handle del SPI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_adfc414b46ec3ea151203c7e5fd04260d}{NRF24\+\_\+start\+Listening}} (void)
+\begin{DoxyCompactList}\small\item\em Prepara el Rx para recibir. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a2008bdafeaac5cd47d964cf30addd5d6}{NRF24\+\_\+stop\+Listening}} (void)
+\begin{DoxyCompactList}\small\item\em Parar de escuchar/recibir, obligatorio antes de enviar información. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a5db13faca216799c5f4c28f5636c1420}{NRF24\+\_\+write}} (const void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Escribimos/\+Transmitimos los datos a traves del transceptor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_abcd4daf351b8f77d5f16da7beffe8c03}{NRF24\+\_\+available}} (void)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_aee500883d7669923c085e34fafc87efa}{NRF24\+\_\+read}} (void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Leer los datos recibidos (ACK) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a2c67465efdd7d66bb29d7b6fb79c6fbb}{NRF24\+\_\+open\+Writing\+Pipe}} (uint64\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em //\+Prepara el Tx para enviar, con una dirección inequívoca para identificar el enlace, el skate/receptor usará la misma \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ace8685ee00efc471c7fcc8f7b864473e}{NRF24\+\_\+open\+Reading\+Pipe}} (uint8\+\_\+t number, uint64\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Prepara el Rx para recibir, con direccion inequivoca. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a2b1d2121bc934e00028a27079efe7f15}{NRF24\+\_\+set\+Retries}} (uint8\+\_\+t delay, uint8\+\_\+t count)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a64344fd09516a030e137dffd0fa58d33}{NRF24\+\_\+set\+Channel}} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Elegimos la frecuencia del canal por el que vamos a transmitir. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_af97fe35c94d2e9c858a1eec82d3489d9}{NRF24\+\_\+set\+Payload\+Size}} (uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Tamaño de información que podemos enviar, maximo 32 bytes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_m_y___n_r_f24_8c_ab1d8fcb13d4edf5929f4b79b7e7e55e1}{NRF24\+\_\+get\+Payload\+Size}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_m_y___n_r_f24_8c_aff45fd98c22c190fbc2bcd25c488bd9a}{NRF24\+\_\+get\+Dynamic\+Payload\+Size}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a9c3438503e2503a92a2307e4f898dccb}{NRF24\+\_\+enable\+Ack\+Payload}} (void)
+\begin{DoxyCompactList}\small\item\em Activa el envio de vuelta del ACK. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a355774eaea2cb3cd6ef180b00c22313c}{NRF24\+\_\+enable\+Dynamic\+Payloads}} (void)
+\begin{DoxyCompactList}\small\item\em Activa las Payload dinamicas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a55fd8a49645608ac0f940d0112a4b80e}{NRF24\+\_\+disable\+Dynamic\+Payloads}} (void)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a079ce82b2788ae40b12c316430bae8c1}{NRF24\+\_\+is\+NRF\+\_\+\+Plus}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ae099ee89b070749f3be1b4838c0666a8}{NRF24\+\_\+set\+Auto\+Ack}} (bool enable)
+\begin{DoxyCompactList}\small\item\em Activa envío con ACK. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_abf7302c6c3e14b6ebe619f8c3b3997e9}{NRF24\+\_\+set\+Auto\+Ack\+Pipe}} (uint8\+\_\+t pipe, bool enable)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_aa4139a0384e898d42f86aab604f607a0}{NRF24\+\_\+set\+PALevel}} (\mbox{\hyperlink{_m_y___n_r_f24_8h_a1e4cd0bea93e6b43422855fb0120aace}{rf24\+\_\+pa\+\_\+dbm\+\_\+e}} level)
+\item 
+\mbox{\hyperlink{_m_y___n_r_f24_8h_a1e4cd0bea93e6b43422855fb0120aace}{rf24\+\_\+pa\+\_\+dbm\+\_\+e}} \mbox{\hyperlink{_m_y___n_r_f24_8c_a9c8762df91de3a9902474d8c0c6d3454}{NRF24\+\_\+get\+PALevel}} (void)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a784e303bacb95158e34c5cf825ca71d1}{NRF24\+\_\+set\+Data\+Rate}} (\mbox{\hyperlink{_m_y___n_r_f24_8h_a82745de4aa1251b7561564b3ed1d6522}{rf24\+\_\+datarate\+\_\+e}} speed)
+\item 
+\mbox{\hyperlink{_m_y___n_r_f24_8h_a82745de4aa1251b7561564b3ed1d6522}{rf24\+\_\+datarate\+\_\+e}} \mbox{\hyperlink{_m_y___n_r_f24_8c_a5ce71d75aab4fbc1f3d42e14be75bb86}{NRF24\+\_\+get\+Data\+Rate}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ac09dcfadbda14fada8f60e5d3448c486}{NRF24\+\_\+set\+CRCLength}} (\mbox{\hyperlink{_m_y___n_r_f24_8h_adbe00719f3f835c82bd007081d040a7e}{rf24\+\_\+crclength\+\_\+e}} length)
+\item 
+\mbox{\hyperlink{_m_y___n_r_f24_8h_adbe00719f3f835c82bd007081d040a7e}{rf24\+\_\+crclength\+\_\+e}} \mbox{\hyperlink{_m_y___n_r_f24_8c_a875099fe32a4079f5f3cafb9acf92da8}{NRF24\+\_\+get\+CRCLength}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a0397988d680f56343e9b9deddc0f9c63}{NRF24\+\_\+disable\+CRC}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ab096a18e8995988e566546b3f86d46a3}{NRF24\+\_\+power\+Up}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ab6fe3e84d0d301d59bd55f1c0f69f622}{NRF24\+\_\+power\+Down}} (void)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_ae2e09ccf03cc7fb231eb4039335721b8}{NRF24\+\_\+available\+Pipe}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}pipe\+\_\+num)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_aa76fadd98c2fc65e5e8024f5f29caed2}{NRF24\+\_\+start\+Write}} (const void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a2d67b790b39e55b3d8fef642932c3fb4}{NRF24\+\_\+write\+Ack\+Payload}} (uint8\+\_\+t pipe, const void \texorpdfstring{$\ast$}{*}buf, uint8\+\_\+t len)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a4da201151af3878d332930b60f8eab87}{NRF24\+\_\+is\+Ack\+Payload\+Available}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_aeb6a278f0a187d7ddde9ff2703391690}{NRF24\+\_\+what\+Happened}} (bool \texorpdfstring{$\ast$}{*}tx\+\_\+ok, bool \texorpdfstring{$\ast$}{*}tx\+\_\+fail, bool \texorpdfstring{$\ast$}{*}rx\+\_\+ready)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a79d2d66c3da0bd98a6d7afd796862ddb}{NRF24\+\_\+test\+Carrier}} (void)
+\item 
+bool \mbox{\hyperlink{_m_y___n_r_f24_8c_a38b95c46049c26cdb51f3e0f21a8b669}{NRF24\+\_\+test\+RPD}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a5927102767e1a3d96b445e4510c39def}{NRF24\+\_\+reset\+Status}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ab3c4d988a3eb8a20b409925470b8047a}{NRF24\+\_\+\+ACTIVATE\+\_\+cmd}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_m_y___n_r_f24_8c_a79cc34051452247778b3400157fed09c}{NRF24\+\_\+\+Get\+Ack\+Payload\+Size}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a288b5de11e90c49a7a0949dd07f594a0}{print\+Radio\+Settings}} (void)
+\begin{DoxyCompactList}\small\item\em Hace print por la terminal de los ajustes, usado en la entrega intermedia. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a3aafe30954c325103077ece4228d6e07}{print\+Status\+Reg}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_a4a7e119ca7442da1ac2ca60397907f5d}{print\+Config\+Reg}} (void)
+\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ac1e56577d09d38703513121b36bd6c83}{nrf24\+\_\+\+Debug\+UART\+\_\+\+Init}} (UART\+\_\+\+Handle\+Type\+Def nrf24\+Uart)
+\begin{DoxyCompactList}\small\item\em Inicializa la línea UART para comprobar la transmisión según mostramos en la entrega intermedia. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_y___n_r_f24_8c_ab9e17c2432fc1301419a6bdb5539b540}{print\+FIFOstatus}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{_m_y___n_r_f24_8c_aff51f472a69a39cc575675a291d2f1a4}\label{_m_y___n_r_f24_8c_aff51f472a69a39cc575675a291d2f1a4} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!\_BOOL@{\_BOOL}}
+\index{\_BOOL@{\_BOOL}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{\_BOOL}{\_BOOL}}
+{\footnotesize\ttfamily \#define \+\_\+\+BOOL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(((x)$>$0) ? 1\+:0)}
+
+\Hypertarget{_m_y___n_r_f24_8c_aacc3ee1a7f283f8ef65cea31f4436a95}\label{_m_y___n_r_f24_8c_aacc3ee1a7f283f8ef65cea31f4436a95} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!MAX@{MAX}}
+\index{MAX@{MAX}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \#define MAX(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~(((x) $>$ (y)) ? (x) \+: (y))}
+
+\Hypertarget{_m_y___n_r_f24_8c_a74e75242132eaabbc1c512488a135926}\label{_m_y___n_r_f24_8c_a74e75242132eaabbc1c512488a135926} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!MIN@{MIN}}
+\index{MIN@{MIN}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{MIN}{MIN}}
+{\footnotesize\ttfamily \#define MIN(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~(((x) $<$ (y)) ? (x) \+: (y))}
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{_m_y___n_r_f24_8c_ab3c4d988a3eb8a20b409925470b8047a}\label{_m_y___n_r_f24_8c_ab3c4d988a3eb8a20b409925470b8047a} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_ACTIVATE\_cmd@{NRF24\_ACTIVATE\_cmd}}
+\index{NRF24\_ACTIVATE\_cmd@{NRF24\_ACTIVATE\_cmd}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_ACTIVATE\_cmd()}{NRF24\_ACTIVATE\_cmd()}}
+{\footnotesize\ttfamily void NRF24\+\_\+\+ACTIVATE\+\_\+cmd (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_abcd4daf351b8f77d5f16da7beffe8c03}\label{_m_y___n_r_f24_8c_abcd4daf351b8f77d5f16da7beffe8c03} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_available@{NRF24\_available}}
+\index{NRF24\_available@{NRF24\_available}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_available()}{NRF24\_available()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ae2e09ccf03cc7fb231eb4039335721b8}\label{_m_y___n_r_f24_8c_ae2e09ccf03cc7fb231eb4039335721b8} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_availablePipe@{NRF24\_availablePipe}}
+\index{NRF24\_availablePipe@{NRF24\_availablePipe}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_availablePipe()}{NRF24\_availablePipe()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+available\+Pipe (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pipe\+\_\+num }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a9fe580c2c16ec66d3b85e9c2068eff28}\label{_m_y___n_r_f24_8c_a9fe580c2c16ec66d3b85e9c2068eff28} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_begin@{NRF24\_begin}}
+\index{NRF24\_begin@{NRF24\_begin}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_begin()}{NRF24\_begin()}}
+{\footnotesize\ttfamily void NRF24\+\_\+begin (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{nrf24\+PORT,  }\item[{uint16\+\_\+t}]{nrf\+CSN\+\_\+\+Pin,  }\item[{uint16\+\_\+t}]{nrf\+CE\+\_\+\+Pin,  }\item[{SPI\+\_\+\+Handle\+Type\+Def}]{nrf\+SPI }\end{DoxyParamCaption})}
+
+
+
+Inicializa la libreria y establece los puertos CE, CSN y el handle del SPI. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nrf24\+PORT} & Puerto principal \\
+\hline
+{\em nrf\+CSN\+\_\+\+Pin} & Chip Select \\
+\hline
+{\em nrf\+CE\+\_\+\+Pin} & Chip Enable \\
+\hline
+{\em nrf\+SPI} & SPI Handler \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_a1dc72f8089e95b9e8be4d19046b5c0ac}\label{_m_y___n_r_f24_8c_a1dc72f8089e95b9e8be4d19046b5c0ac} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_ce@{NRF24\_ce}}
+\index{NRF24\_ce@{NRF24\_ce}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_ce()}{NRF24\_ce()}}
+{\footnotesize\ttfamily void NRF24\+\_\+ce (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_acc1217893001fb902fa33b2ddbd63110}\label{_m_y___n_r_f24_8c_acc1217893001fb902fa33b2ddbd63110} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_csn@{NRF24\_csn}}
+\index{NRF24\_csn@{NRF24\_csn}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_csn()}{NRF24\_csn()}}
+{\footnotesize\ttfamily void NRF24\+\_\+csn (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ac1e56577d09d38703513121b36bd6c83}\label{_m_y___n_r_f24_8c_ac1e56577d09d38703513121b36bd6c83} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!nrf24\_DebugUART\_Init@{nrf24\_DebugUART\_Init}}
+\index{nrf24\_DebugUART\_Init@{nrf24\_DebugUART\_Init}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{nrf24\_DebugUART\_Init()}{nrf24\_DebugUART\_Init()}}
+{\footnotesize\ttfamily void nrf24\+\_\+\+Debug\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def}]{nrf24\+Uart }\end{DoxyParamCaption})}
+
+
+
+Inicializa la línea UART para comprobar la transmisión según mostramos en la entrega intermedia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em nrf24\+Uart} & Uart \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_ac2f2ac150aa22d8c797e845998efc16c}\label{_m_y___n_r_f24_8c_ac2f2ac150aa22d8c797e845998efc16c} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_DelayMicroSeconds@{NRF24\_DelayMicroSeconds}}
+\index{NRF24\_DelayMicroSeconds@{NRF24\_DelayMicroSeconds}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_DelayMicroSeconds()}{NRF24\_DelayMicroSeconds()}}
+{\footnotesize\ttfamily void NRF24\+\_\+\+Delay\+Micro\+Seconds (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{u\+Sec }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a0397988d680f56343e9b9deddc0f9c63}\label{_m_y___n_r_f24_8c_a0397988d680f56343e9b9deddc0f9c63} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_disableCRC@{NRF24\_disableCRC}}
+\index{NRF24\_disableCRC@{NRF24\_disableCRC}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_disableCRC()}{NRF24\_disableCRC()}}
+{\footnotesize\ttfamily void NRF24\+\_\+disable\+CRC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a55fd8a49645608ac0f940d0112a4b80e}\label{_m_y___n_r_f24_8c_a55fd8a49645608ac0f940d0112a4b80e} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_disableDynamicPayloads@{NRF24\_disableDynamicPayloads}}
+\index{NRF24\_disableDynamicPayloads@{NRF24\_disableDynamicPayloads}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_disableDynamicPayloads()}{NRF24\_disableDynamicPayloads()}}
+{\footnotesize\ttfamily void NRF24\+\_\+disable\+Dynamic\+Payloads (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a9c3438503e2503a92a2307e4f898dccb}\label{_m_y___n_r_f24_8c_a9c3438503e2503a92a2307e4f898dccb} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_enableAckPayload@{NRF24\_enableAckPayload}}
+\index{NRF24\_enableAckPayload@{NRF24\_enableAckPayload}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_enableAckPayload()}{NRF24\_enableAckPayload()}}
+{\footnotesize\ttfamily void NRF24\+\_\+enable\+Ack\+Payload (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Activa el envio de vuelta del ACK. 
+
+\Hypertarget{_m_y___n_r_f24_8c_a355774eaea2cb3cd6ef180b00c22313c}\label{_m_y___n_r_f24_8c_a355774eaea2cb3cd6ef180b00c22313c} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_enableDynamicPayloads@{NRF24\_enableDynamicPayloads}}
+\index{NRF24\_enableDynamicPayloads@{NRF24\_enableDynamicPayloads}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_enableDynamicPayloads()}{NRF24\_enableDynamicPayloads()}}
+{\footnotesize\ttfamily void NRF24\+\_\+enable\+Dynamic\+Payloads (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Activa las Payload dinamicas. 
+
+\Hypertarget{_m_y___n_r_f24_8c_aace3c55f34745940228b5133a17386fd}\label{_m_y___n_r_f24_8c_aace3c55f34745940228b5133a17386fd} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_flush\_rx@{NRF24\_flush\_rx}}
+\index{NRF24\_flush\_rx@{NRF24\_flush\_rx}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_flush\_rx()}{NRF24\_flush\_rx()}}
+{\footnotesize\ttfamily void NRF24\+\_\+flush\+\_\+rx (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a741cb09665af6c187e906bf83903d42b}\label{_m_y___n_r_f24_8c_a741cb09665af6c187e906bf83903d42b} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_flush\_tx@{NRF24\_flush\_tx}}
+\index{NRF24\_flush\_tx@{NRF24\_flush\_tx}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_flush\_tx()}{NRF24\_flush\_tx()}}
+{\footnotesize\ttfamily void NRF24\+\_\+flush\+\_\+tx (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a7721512157e7ea40daa1a453b6f9d611}\label{_m_y___n_r_f24_8c_a7721512157e7ea40daa1a453b6f9d611} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_get\_status@{NRF24\_get\_status}}
+\index{NRF24\_get\_status@{NRF24\_get\_status}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_get\_status()}{NRF24\_get\_status()}}
+{\footnotesize\ttfamily uint8\+\_\+t NRF24\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a79cc34051452247778b3400157fed09c}\label{_m_y___n_r_f24_8c_a79cc34051452247778b3400157fed09c} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_GetAckPayloadSize@{NRF24\_GetAckPayloadSize}}
+\index{NRF24\_GetAckPayloadSize@{NRF24\_GetAckPayloadSize}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_GetAckPayloadSize()}{NRF24\_GetAckPayloadSize()}}
+{\footnotesize\ttfamily uint8\+\_\+t NRF24\+\_\+\+Get\+Ack\+Payload\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a875099fe32a4079f5f3cafb9acf92da8}\label{_m_y___n_r_f24_8c_a875099fe32a4079f5f3cafb9acf92da8} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_getCRCLength@{NRF24\_getCRCLength}}
+\index{NRF24\_getCRCLength@{NRF24\_getCRCLength}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_getCRCLength()}{NRF24\_getCRCLength()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_y___n_r_f24_8h_adbe00719f3f835c82bd007081d040a7e}{rf24\+\_\+crclength\+\_\+e}} NRF24\+\_\+get\+CRCLength (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a5ce71d75aab4fbc1f3d42e14be75bb86}\label{_m_y___n_r_f24_8c_a5ce71d75aab4fbc1f3d42e14be75bb86} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_getDataRate@{NRF24\_getDataRate}}
+\index{NRF24\_getDataRate@{NRF24\_getDataRate}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_getDataRate()}{NRF24\_getDataRate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_y___n_r_f24_8h_a82745de4aa1251b7561564b3ed1d6522}{rf24\+\_\+datarate\+\_\+e}} NRF24\+\_\+get\+Data\+Rate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_aff45fd98c22c190fbc2bcd25c488bd9a}\label{_m_y___n_r_f24_8c_aff45fd98c22c190fbc2bcd25c488bd9a} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_getDynamicPayloadSize@{NRF24\_getDynamicPayloadSize}}
+\index{NRF24\_getDynamicPayloadSize@{NRF24\_getDynamicPayloadSize}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_getDynamicPayloadSize()}{NRF24\_getDynamicPayloadSize()}}
+{\footnotesize\ttfamily uint8\+\_\+t NRF24\+\_\+get\+Dynamic\+Payload\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a9c8762df91de3a9902474d8c0c6d3454}\label{_m_y___n_r_f24_8c_a9c8762df91de3a9902474d8c0c6d3454} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_getPALevel@{NRF24\_getPALevel}}
+\index{NRF24\_getPALevel@{NRF24\_getPALevel}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_getPALevel()}{NRF24\_getPALevel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_y___n_r_f24_8h_a1e4cd0bea93e6b43422855fb0120aace}{rf24\+\_\+pa\+\_\+dbm\+\_\+e}} NRF24\+\_\+get\+PALevel (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ab1d8fcb13d4edf5929f4b79b7e7e55e1}\label{_m_y___n_r_f24_8c_ab1d8fcb13d4edf5929f4b79b7e7e55e1} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_getPayloadSize@{NRF24\_getPayloadSize}}
+\index{NRF24\_getPayloadSize@{NRF24\_getPayloadSize}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_getPayloadSize()}{NRF24\_getPayloadSize()}}
+{\footnotesize\ttfamily uint8\+\_\+t NRF24\+\_\+get\+Payload\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a4da201151af3878d332930b60f8eab87}\label{_m_y___n_r_f24_8c_a4da201151af3878d332930b60f8eab87} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_isAckPayloadAvailable@{NRF24\_isAckPayloadAvailable}}
+\index{NRF24\_isAckPayloadAvailable@{NRF24\_isAckPayloadAvailable}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_isAckPayloadAvailable()}{NRF24\_isAckPayloadAvailable()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+is\+Ack\+Payload\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a079ce82b2788ae40b12c316430bae8c1}\label{_m_y___n_r_f24_8c_a079ce82b2788ae40b12c316430bae8c1} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_isNRF\_Plus@{NRF24\_isNRF\_Plus}}
+\index{NRF24\_isNRF\_Plus@{NRF24\_isNRF\_Plus}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_isNRF\_Plus()}{NRF24\_isNRF\_Plus()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+is\+NRF\+\_\+\+Plus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ace8685ee00efc471c7fcc8f7b864473e}\label{_m_y___n_r_f24_8c_ace8685ee00efc471c7fcc8f7b864473e} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_openReadingPipe@{NRF24\_openReadingPipe}}
+\index{NRF24\_openReadingPipe@{NRF24\_openReadingPipe}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_openReadingPipe()}{NRF24\_openReadingPipe()}}
+{\footnotesize\ttfamily void NRF24\+\_\+open\+Reading\+Pipe (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{number,  }\item[{uint64\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+Prepara el Rx para recibir, con direccion inequivoca. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em number} & Numero de Rx \\
+\hline
+{\em address} & Dirección inequívoca para identificar el enlace \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_a2c67465efdd7d66bb29d7b6fb79c6fbb}\label{_m_y___n_r_f24_8c_a2c67465efdd7d66bb29d7b6fb79c6fbb} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_openWritingPipe@{NRF24\_openWritingPipe}}
+\index{NRF24\_openWritingPipe@{NRF24\_openWritingPipe}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_openWritingPipe()}{NRF24\_openWritingPipe()}}
+{\footnotesize\ttfamily void NRF24\+\_\+open\+Writing\+Pipe (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+//\+Prepara el Tx para enviar, con una dirección inequívoca para identificar el enlace, el skate/receptor usará la misma 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em address} & Dirección inequívoca para identificar el enlace \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_ab6fe3e84d0d301d59bd55f1c0f69f622}\label{_m_y___n_r_f24_8c_ab6fe3e84d0d301d59bd55f1c0f69f622} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_powerDown@{NRF24\_powerDown}}
+\index{NRF24\_powerDown@{NRF24\_powerDown}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_powerDown()}{NRF24\_powerDown()}}
+{\footnotesize\ttfamily void NRF24\+\_\+power\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ab096a18e8995988e566546b3f86d46a3}\label{_m_y___n_r_f24_8c_ab096a18e8995988e566546b3f86d46a3} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_powerUp@{NRF24\_powerUp}}
+\index{NRF24\_powerUp@{NRF24\_powerUp}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_powerUp()}{NRF24\_powerUp()}}
+{\footnotesize\ttfamily void NRF24\+\_\+power\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_aee500883d7669923c085e34fafc87efa}\label{_m_y___n_r_f24_8c_aee500883d7669923c085e34fafc87efa} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_read@{NRF24\_read}}
+\index{NRF24\_read@{NRF24\_read}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_read()}{NRF24\_read()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Leer los datos recibidos (ACK) 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em buf} & buffer de datos de entrada \\
+\hline
+{\em len} & longitud del buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true 
+
+false 
+\end{DoxyReturn}
+\Hypertarget{_m_y___n_r_f24_8c_a312f747b7aace112116f00344adeb5ae}\label{_m_y___n_r_f24_8c_a312f747b7aace112116f00344adeb5ae} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_read\_payload@{NRF24\_read\_payload}}
+\index{NRF24\_read\_payload@{NRF24\_read\_payload}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_read\_payload()}{NRF24\_read\_payload()}}
+{\footnotesize\ttfamily void NRF24\+\_\+read\+\_\+payload (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ad750c260a6c1c0deff39c2465c54f925}\label{_m_y___n_r_f24_8c_ad750c260a6c1c0deff39c2465c54f925} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_read\_register@{NRF24\_read\_register}}
+\index{NRF24\_read\_register@{NRF24\_read\_register}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_read\_register()}{NRF24\_read\_register()}}
+{\footnotesize\ttfamily uint8\+\_\+t NRF24\+\_\+read\+\_\+register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ae7cc0a8a15e32b821731fa153736cd44}\label{_m_y___n_r_f24_8c_ae7cc0a8a15e32b821731fa153736cd44} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_read\_registerN@{NRF24\_read\_registerN}}
+\index{NRF24\_read\_registerN@{NRF24\_read\_registerN}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_read\_registerN()}{NRF24\_read\_registerN()}}
+{\footnotesize\ttfamily void NRF24\+\_\+read\+\_\+registerN (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a5927102767e1a3d96b445e4510c39def}\label{_m_y___n_r_f24_8c_a5927102767e1a3d96b445e4510c39def} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_resetStatus@{NRF24\_resetStatus}}
+\index{NRF24\_resetStatus@{NRF24\_resetStatus}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_resetStatus()}{NRF24\_resetStatus()}}
+{\footnotesize\ttfamily void NRF24\+\_\+reset\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ae099ee89b070749f3be1b4838c0666a8}\label{_m_y___n_r_f24_8c_ae099ee89b070749f3be1b4838c0666a8} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setAutoAck@{NRF24\_setAutoAck}}
+\index{NRF24\_setAutoAck@{NRF24\_setAutoAck}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setAutoAck()}{NRF24\_setAutoAck()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+Auto\+Ack (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Activa envío con ACK. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em enable} & True o false \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_abf7302c6c3e14b6ebe619f8c3b3997e9}\label{_m_y___n_r_f24_8c_abf7302c6c3e14b6ebe619f8c3b3997e9} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setAutoAckPipe@{NRF24\_setAutoAckPipe}}
+\index{NRF24\_setAutoAckPipe@{NRF24\_setAutoAckPipe}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setAutoAckPipe()}{NRF24\_setAutoAckPipe()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+Auto\+Ack\+Pipe (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pipe,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a64344fd09516a030e137dffd0fa58d33}\label{_m_y___n_r_f24_8c_a64344fd09516a030e137dffd0fa58d33} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setChannel@{NRF24\_setChannel}}
+\index{NRF24\_setChannel@{NRF24\_setChannel}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setChannel()}{NRF24\_setChannel()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+Channel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Elegimos la frecuencia del canal por el que vamos a transmitir. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em channel} & Valor de canal entre 0-\/127 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_ac09dcfadbda14fada8f60e5d3448c486}\label{_m_y___n_r_f24_8c_ac09dcfadbda14fada8f60e5d3448c486} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setCRCLength@{NRF24\_setCRCLength}}
+\index{NRF24\_setCRCLength@{NRF24\_setCRCLength}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setCRCLength()}{NRF24\_setCRCLength()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+CRCLength (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_m_y___n_r_f24_8h_adbe00719f3f835c82bd007081d040a7e}{rf24\+\_\+crclength\+\_\+e}}}]{length }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a784e303bacb95158e34c5cf825ca71d1}\label{_m_y___n_r_f24_8c_a784e303bacb95158e34c5cf825ca71d1} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setDataRate@{NRF24\_setDataRate}}
+\index{NRF24\_setDataRate@{NRF24\_setDataRate}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setDataRate()}{NRF24\_setDataRate()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+set\+Data\+Rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_m_y___n_r_f24_8h_a82745de4aa1251b7561564b3ed1d6522}{rf24\+\_\+datarate\+\_\+e}}}]{speed }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_aa4139a0384e898d42f86aab604f607a0}\label{_m_y___n_r_f24_8c_aa4139a0384e898d42f86aab604f607a0} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setPALevel@{NRF24\_setPALevel}}
+\index{NRF24\_setPALevel@{NRF24\_setPALevel}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setPALevel()}{NRF24\_setPALevel()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+PALevel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_m_y___n_r_f24_8h_a1e4cd0bea93e6b43422855fb0120aace}{rf24\+\_\+pa\+\_\+dbm\+\_\+e}}}]{level }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_af97fe35c94d2e9c858a1eec82d3489d9}\label{_m_y___n_r_f24_8c_af97fe35c94d2e9c858a1eec82d3489d9} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setPayloadSize@{NRF24\_setPayloadSize}}
+\index{NRF24\_setPayloadSize@{NRF24\_setPayloadSize}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setPayloadSize()}{NRF24\_setPayloadSize()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+Payload\+Size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Tamaño de información que podemos enviar, maximo 32 bytes. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em size} & Tamaño \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_m_y___n_r_f24_8c_a2b1d2121bc934e00028a27079efe7f15}\label{_m_y___n_r_f24_8c_a2b1d2121bc934e00028a27079efe7f15} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_setRetries@{NRF24\_setRetries}}
+\index{NRF24\_setRetries@{NRF24\_setRetries}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_setRetries()}{NRF24\_setRetries()}}
+{\footnotesize\ttfamily void NRF24\+\_\+set\+Retries (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{delay,  }\item[{uint8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_adfc414b46ec3ea151203c7e5fd04260d}\label{_m_y___n_r_f24_8c_adfc414b46ec3ea151203c7e5fd04260d} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_startListening@{NRF24\_startListening}}
+\index{NRF24\_startListening@{NRF24\_startListening}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_startListening()}{NRF24\_startListening()}}
+{\footnotesize\ttfamily void NRF24\+\_\+start\+Listening (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Prepara el Rx para recibir. 
+
+\Hypertarget{_m_y___n_r_f24_8c_aa76fadd98c2fc65e5e8024f5f29caed2}\label{_m_y___n_r_f24_8c_aa76fadd98c2fc65e5e8024f5f29caed2} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_startWrite@{NRF24\_startWrite}}
+\index{NRF24\_startWrite@{NRF24\_startWrite}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_startWrite()}{NRF24\_startWrite()}}
+{\footnotesize\ttfamily void NRF24\+\_\+start\+Write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a2008bdafeaac5cd47d964cf30addd5d6}\label{_m_y___n_r_f24_8c_a2008bdafeaac5cd47d964cf30addd5d6} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_stopListening@{NRF24\_stopListening}}
+\index{NRF24\_stopListening@{NRF24\_stopListening}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_stopListening()}{NRF24\_stopListening()}}
+{\footnotesize\ttfamily void NRF24\+\_\+stop\+Listening (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Parar de escuchar/recibir, obligatorio antes de enviar información. 
+
+\Hypertarget{_m_y___n_r_f24_8c_a79d2d66c3da0bd98a6d7afd796862ddb}\label{_m_y___n_r_f24_8c_a79d2d66c3da0bd98a6d7afd796862ddb} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_testCarrier@{NRF24\_testCarrier}}
+\index{NRF24\_testCarrier@{NRF24\_testCarrier}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_testCarrier()}{NRF24\_testCarrier()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+test\+Carrier (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a38b95c46049c26cdb51f3e0f21a8b669}\label{_m_y___n_r_f24_8c_a38b95c46049c26cdb51f3e0f21a8b669} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_testRPD@{NRF24\_testRPD}}
+\index{NRF24\_testRPD@{NRF24\_testRPD}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_testRPD()}{NRF24\_testRPD()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+test\+RPD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_aeb6a278f0a187d7ddde9ff2703391690}\label{_m_y___n_r_f24_8c_aeb6a278f0a187d7ddde9ff2703391690} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_whatHappened@{NRF24\_whatHappened}}
+\index{NRF24\_whatHappened@{NRF24\_whatHappened}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_whatHappened()}{NRF24\_whatHappened()}}
+{\footnotesize\ttfamily void NRF24\+\_\+what\+Happened (\begin{DoxyParamCaption}\item[{bool \texorpdfstring{$\ast$}{*}}]{tx\+\_\+ok,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{tx\+\_\+fail,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{rx\+\_\+ready }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a5db13faca216799c5f4c28f5636c1420}\label{_m_y___n_r_f24_8c_a5db13faca216799c5f4c28f5636c1420} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_write@{NRF24\_write}}
+\index{NRF24\_write@{NRF24\_write}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_write()}{NRF24\_write()}}
+{\footnotesize\ttfamily bool NRF24\+\_\+write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Escribimos/\+Transmitimos los datos a traves del transceptor. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em buf} & Buffer a enviar \\
+\hline
+{\em len} & Longitud del buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true Si se ejecuta correctamente 
+
+false Si no 
+\end{DoxyReturn}
+\Hypertarget{_m_y___n_r_f24_8c_a097926d70cb558d65285ec67602963fe}\label{_m_y___n_r_f24_8c_a097926d70cb558d65285ec67602963fe} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_write\_payload@{NRF24\_write\_payload}}
+\index{NRF24\_write\_payload@{NRF24\_write\_payload}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_write\_payload()}{NRF24\_write\_payload()}}
+{\footnotesize\ttfamily void NRF24\+\_\+write\+\_\+payload (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_af479d475bc801c51e8d236a228f6cd40}\label{_m_y___n_r_f24_8c_af479d475bc801c51e8d236a228f6cd40} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_write\_register@{NRF24\_write\_register}}
+\index{NRF24\_write\_register@{NRF24\_write\_register}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_write\_register()}{NRF24\_write\_register()}}
+{\footnotesize\ttfamily void NRF24\+\_\+write\+\_\+register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_afffc3f01b8e25c17935cc40103091c4d}\label{_m_y___n_r_f24_8c_afffc3f01b8e25c17935cc40103091c4d} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_write\_registerN@{NRF24\_write\_registerN}}
+\index{NRF24\_write\_registerN@{NRF24\_write\_registerN}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_write\_registerN()}{NRF24\_write\_registerN()}}
+{\footnotesize\ttfamily void NRF24\+\_\+write\+\_\+registerN (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a2d67b790b39e55b3d8fef642932c3fb4}\label{_m_y___n_r_f24_8c_a2d67b790b39e55b3d8fef642932c3fb4} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!NRF24\_writeAckPayload@{NRF24\_writeAckPayload}}
+\index{NRF24\_writeAckPayload@{NRF24\_writeAckPayload}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{NRF24\_writeAckPayload()}{NRF24\_writeAckPayload()}}
+{\footnotesize\ttfamily void NRF24\+\_\+write\+Ack\+Payload (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pipe,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a4a7e119ca7442da1ac2ca60397907f5d}\label{_m_y___n_r_f24_8c_a4a7e119ca7442da1ac2ca60397907f5d} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!printConfigReg@{printConfigReg}}
+\index{printConfigReg@{printConfigReg}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{printConfigReg()}{printConfigReg()}}
+{\footnotesize\ttfamily void print\+Config\+Reg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_ab9e17c2432fc1301419a6bdb5539b540}\label{_m_y___n_r_f24_8c_ab9e17c2432fc1301419a6bdb5539b540} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!printFIFOstatus@{printFIFOstatus}}
+\index{printFIFOstatus@{printFIFOstatus}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{printFIFOstatus()}{printFIFOstatus()}}
+{\footnotesize\ttfamily void print\+FIFOstatus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_m_y___n_r_f24_8c_a288b5de11e90c49a7a0949dd07f594a0}\label{_m_y___n_r_f24_8c_a288b5de11e90c49a7a0949dd07f594a0} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!printRadioSettings@{printRadioSettings}}
+\index{printRadioSettings@{printRadioSettings}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{printRadioSettings()}{printRadioSettings()}}
+{\footnotesize\ttfamily void print\+Radio\+Settings (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Hace print por la terminal de los ajustes, usado en la entrega intermedia. 
+
+\Hypertarget{_m_y___n_r_f24_8c_a3aafe30954c325103077ece4228d6e07}\label{_m_y___n_r_f24_8c_a3aafe30954c325103077ece4228d6e07} 
+\index{MY\_NRF24.c@{MY\_NRF24.c}!printStatusReg@{printStatusReg}}
+\index{printStatusReg@{printStatusReg}!MY\_NRF24.c@{MY\_NRF24.c}}
+\doxysubsubsection{\texorpdfstring{printStatusReg()}{printStatusReg()}}
+{\footnotesize\ttfamily void print\+Status\+Reg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

@@ -1,0 +1,65 @@
+\doxysection{Referencia del archivo common/include/fsm\+\_\+pwm.h}
+\hypertarget{fsm__pwm_8h}{}\label{fsm__pwm_8h}\index{common/include/fsm\_pwm.h@{common/include/fsm\_pwm.h}}
+
+
+Cabecera Maquina de estados del Skate.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \"{}fsm.\+h\"{}}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsm__pwm_8h_a2748179132cdd27a2e6766502b29875f}{fsm\+\_\+pwm\+\_\+new}} ()
+\begin{DoxyCompactList}\small\item\em Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm__pwm_8h_ad2986e1accbf5ef10ad191407e8c00f5}{fsm\+\_\+pwm\+\_\+init}} (\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+\_\+fsm)
+\begin{DoxyCompactList}\small\item\em Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Cabecera Maquina de estados del Skate. 
+
+\begin{DoxyAuthor}{Autor}
+Javier y Manuel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/05-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{fsm__pwm_8h_ad2986e1accbf5ef10ad191407e8c00f5}\label{fsm__pwm_8h_ad2986e1accbf5ef10ad191407e8c00f5} 
+\index{fsm\_pwm.h@{fsm\_pwm.h}!fsm\_pwm\_init@{fsm\_pwm\_init}}
+\index{fsm\_pwm\_init@{fsm\_pwm\_init}!fsm\_pwm.h@{fsm\_pwm.h}}
+\doxysubsubsection{\texorpdfstring{fsm\_pwm\_init()}{fsm\_pwm\_init()}}
+{\footnotesize\ttfamily void fsm\+\_\+pwm\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+fsm }\end{DoxyParamCaption})}
+
+
+
+Inicializa todos los parametros de la FSM para generar correctamente el PWM y su direccion. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em p\+\_\+fsm} & Puntero a la FSM del PWM \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm__pwm_8h_a2748179132cdd27a2e6766502b29875f}\label{fsm__pwm_8h_a2748179132cdd27a2e6766502b29875f} 
+\index{fsm\_pwm.h@{fsm\_pwm.h}!fsm\_pwm\_new@{fsm\_pwm\_new}}
+\index{fsm\_pwm\_new@{fsm\_pwm\_new}!fsm\_pwm.h@{fsm\_pwm.h}}
+\doxysubsubsection{\texorpdfstring{fsm\_pwm\_new()}{fsm\_pwm\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfsm__t}{fsm\+\_\+t}} \texorpdfstring{$\ast$}{*} fsm\+\_\+pwm\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea una nueva maquina de estados para generar correctamente el PWM y establecer la direccion. 
+
+\begin{DoxyReturn}{Devuelve}
+fsm\+\_\+t\texorpdfstring{$\ast$}{*} Puntero a la FSM del PWM 
+\end{DoxyReturn}

@@ -1,3 +1,13 @@
+/**
+ * @file fsm_pwm.c
+ * @author Javier y Manuel
+ * @brief Maquina de estados del Skate
+ * @version 1.0
+ * @date 2023-05-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <stddef.h>
 #include <stdlib.h>
 #include "fsm_pwm.h"
@@ -7,6 +17,10 @@
 #include "main.h"
 #include "MY_NRF24.h" //Hal driver del NRF
 
+/**
+ * @brief Estructura de la FSM del Skate-PWM
+ * 
+ */
 typedef struct
 {
     fsm_t fsm;              /*!< Internal FSM from the library */
@@ -16,8 +30,8 @@ typedef struct
 } fsm_pwm_t;
 
 /**
- * @brief Comprueba que el boton de cambio de sentido ha sido pulsado,
- * y cambia la direccion
+ * @brief Comprueba que el interruptor de cambio de sentido ha sido pulsado,
+ * y cambia la direccion de giro hacia adelante
  * 
  * @param p_fsm Puntero a la FSM del PWM
  * @return true 
@@ -36,7 +50,8 @@ bool check_boton_true(fsm_t *p_fsm)
 }
 
 /**
- * @brief Comprueba que el boton de cambio de sentido ha no sido pulsado
+ * @brief Comprueba que el interruptor de cambio de sentido ha sido pulsado,
+ * y cambia la direccion de giro hacia atras
  * 
  * @param p_fsm Puntero a la FSM del PWM
  * @return true 
@@ -55,34 +70,46 @@ bool check_boton_false(fsm_t *p_fsm)
 }
 
 
-
+/**
+ * @brief Recibe la informacion del emisor, actualiza los valores y genera el PWM para retroceder
+ * 
+ * @param p_fsm 
+ */
 void do_recibe_acciona_motores_atras(fsm_t *p_fsm)
 {
 fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
+//RECEPCION
 if(NRF24_available())
    {
     NRF24_read(p_pwm -> myRxData, 32);
+    //ACK
     p_pwm -> ack[0] = true;
 		NRF24_writeAckPayload(1, p_pwm -> ack, 1);//Mandar ACK de vuelta true
    }
 
-
+//GENERA PWM
   htim1.Instance->CCR1  = (uint32_t)1520 - (p_pwm -> myRxData[0] * (uint32_t)2.666);
     
 
 }
 
-
+/**
+ * @brief Recibe la informacion del emisor, actualiza los valores y genera el PWM para avanzar
+ * 
+ * @param p_fsm 
+ */
 void do_recibe_acciona_motores_adelante(fsm_t *p_fsm)
 {
 fsm_pwm_t * p_pwm = ( fsm_pwm_t *) p_fsm ;
+//RECEPCION
 if(NRF24_available())
    {
     NRF24_read(p_pwm -> myRxData, 32);
+    //ACK
     p_pwm -> ack[0] = true;
 		NRF24_writeAckPayload(1, p_pwm -> ack, 1);//Mandar ACK de vuelta true
    }
-
+//GENERA PWM
   htim1.Instance->CCR1  = (uint32_t)1520 + (p_pwm -> myRxData[0] * (uint32_t)2.666);
     
 }
